@@ -1,0 +1,22 @@
+{
+  "Records": [
+    {
+      "EventSource": "aws:sns",
+      "EventVersion": "1.0",
+      "EventSubscriptionArn": "arn:aws:sns:eu-west-1:123412341234:test-cloudwatch-alarm-slack:aa242dd0-aaaa-46fa-857d-7bfd3fb92771",
+      "Sns": {
+        "Type": "Notification",
+        "MessageId": "80327923-ccbb-aaee-84b1-245e8d1d7bb6",
+        "TopicArn": "arn:aws:sns:eu-west-1:123412341234:test-cloudwatch-alarm-slack",
+        "Subject": "ALARM: \"test_alarm\" in EU (Ireland)",
+        "Message": "{\"AlarmName\":\"test_alarm\",\"AlarmDescription\":\"Bastion cpu credits less than 150 (Test only)\",\"AWSAccountId\":\"123412341234\",\"AlarmConfigurationUpdatedTimestamp\":\"2023-09-14T17:14:01.049+0000\",\"NewStateValue\":\"ALARM\",\"NewStateReason\":\"Threshold Crossed: 1 datapoint [144.0 (14/09/23 17:10:00)] was less than or equal to the threshold (150.0).\",\"StateChangeTime\":\"2023-09-14T17:14:12.042+0000\",\"Region\":\"EU (Ireland)\",\"AlarmArn\":\"arn:aws:cloudwatch:eu-west-1:123412341234:alarm:test_alarm\",\"OldStateValue\":\"OK\",\"OKActions\":[\"arn:aws:sns:eu-west-1:123412341234:test-cloudwatch-alarm-slack\"],\"AlarmActions\":[\"arn:aws:sns:eu-west-1:123412341234:test-cloudwatch-alarm-slack\"],\"InsufficientDataActions\":[],\"Trigger\":{\"MetricName\":\"CPUCreditBalance\",\"Namespace\":\"AWS/EC2\",\"StatisticType\":\"Statistic\",\"Statistic\":\"AVERAGE\",\"Unit\":null,\"Dimensions\":[{\"value\":\"i-0aa1122bb454c1db\",\"name\":\"InstanceId\"}],\"Period\":60,\"EvaluationPeriods\":1,\"ComparisonOperator\":\"LessThanOrEqualToThreshold\",\"Threshold\":150.0,\"TreatMissingData\":\"missing\",\"EvaluateLowSampleCountPercentile\":\"\"}}",
+        "Timestamp": "2023-09-14T17:14:12.077Z",
+        "SignatureVersion": "1",
+        "Signature": "...",
+        "SigningCertUrl": "https://sns.eu-west-1.amazonaws.com/SimpleNotificationService-01d088a6f77103d0fe307c0069e40ed6.pem",
+        "UnsubscribeUrl": "https://sns.eu-west-1.amazonaws.com/?Action=Unsubscribe&SubscriptionArn=arn:aws:sns:eu-west-1:123412341234:test-cloudwatch-alarm-slack:aa242dd0-aaaa-46fa-857d-7bfd3fb92771",
+        "MessageAttributes": {}
+      }
+    }
+  ]
+}
