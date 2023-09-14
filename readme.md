@@ -6,9 +6,13 @@ Notification originates from Cloudwatch Alarm -> SNS -> Lambda
 
 ## Lambda
 
-Expects `SLACK_WEBHOOK_URL` env var. 
+Expects `SLACK_WEBHOOK_URL` env var to raise notification, if not supplied it will print payload that would be sent to Slack.
 
 Parses incoming SNS message and POSTs to above webhook url.
+
+See `sample.json` for example data, this allows the `main.py` to be run locally.
+
+See `package.sh` to build zip file with dependencies
 
 ## Terraform
 
