@@ -19,7 +19,7 @@ def parse_message(alert_message):
 
 def raise_slack_notification(webhook_url, alert_data):
     """Raise slack notification"""
-    emoji = ":white_tick:" if alert_data["new_state"] == "OK" else ":exclamation:"
+    emoji = "" if alert_data["new_state"] == "OK" else ":exclamation:"
 
     message = {
         "text": f"Cloudwatch alarm: {alert_data['name']} {emoji}",
