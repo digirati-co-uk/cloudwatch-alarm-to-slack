@@ -11,6 +11,13 @@ variable "s3_key" {
 variable "slack_webhook_url" {
   description = "Slack webhook URL to call"
   type        = string
+  default     = ""
+}
+
+variable "slack_webhook_secret" {
+  description = "SecretsManager secret containing slack webhook URL to call"
+  type        = string
+  default     = ""
 }
 
 variable "runtime" {
@@ -37,4 +44,13 @@ variable "account_id" {
 variable "region" {
   description = "AWS region"
   type        = string
+}
+
+locals {
+  env_candidates = {
+    SLACK_WEBHOOK_URL    = var.slack_webhook_url
+    SLACK_WEBHOOK_SECRET = var.slack_webhook_secret
+  }
+
+  env_vars = { for k, v in local.env_candidates : k => v if v != "" }
 }

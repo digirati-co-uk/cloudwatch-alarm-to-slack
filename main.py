@@ -70,6 +70,22 @@ def raise_slack_notification(webhook_url, alert_data):
     print(f"Raised slack notification, received {res.status_code}")
 
 
+def try_get_webook_url():
+    if webhook_url := os.getenv("SLACK_WEBHOOK_URL"):
+        return webhook_url
+    
+    # secret id provided, use SecretsManager Lambda Extension to fetch
+    if secret_id := os.getenv("SLACK_WEBHOOK_SECRET"):
+        headers = {"X-Aws-Parameters-Secrets-Token": os.getenv('AWS_SESSION_TOKEN')}
+        uri = f"http://localhost:2773/secretsmanager/get?secretId={secret_id}"
+        print(f"Reading slack webook url from: {uri}")
+
+        r = requests.get(uri, headers=headers)
+        return json.loads(r.text)["SecretString"]
+    
+    return ""
+
+
 def lambda_handler(event, context):
     print(f"Received event: {json.dumps(event, indent=2)}")
 
@@ -77,7 +93,7 @@ def lambda_handler(event, context):
 
     alert_values = parse_message(alert_message)
 
-    webhook_url = os.getenv("SLACK_WEBHOOK_URL")
+    webhook_url = try_get_webook_url()
     raise_slack_notification(webhook_url, alert_values)
 
 
