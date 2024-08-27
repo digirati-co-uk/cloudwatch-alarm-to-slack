@@ -46,6 +46,12 @@ variable "region" {
   type        = string
 }
 
+variable "dead_letter_arn" {
+  description = "ARN of SNS topic or SQS queue to notify when invocation fails"
+  type        = string
+  default     = null
+}
+
 locals {
   env_candidates = {
     SLACK_WEBHOOK_URL    = var.slack_webhook_url
