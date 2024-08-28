@@ -42,9 +42,11 @@ Terraform creates:
 | slack_webhook_url    | Slack webhook URL to call (optional)                                   |            |
 | slack_webhook_secret | AWS SecretsManager secret storing Slack webhook URL to call (optional) |            |
 | runtime              | Python runtime to use for lambda                                       | python3.11 |
+| dead_letter_arn      | (Optional) ARN of SNS topic or SQS queue to notify if invocation fails |            |
 
 ### Outputs
 
 | Variable      | Description                                    |
 | ------------- | ---------------------------------------------- |
 | sns_topic_arn | ARN of SNS topic for handling Cloudwatch Alarm |
+| role_arn      | ARN of lambda role                             |

@@ -10,6 +10,14 @@ resource "aws_lambda_function" "cloudwatch_to_slack" {
 
   role = aws_iam_role.cloudwatch_to_slack_exec_role.arn
 
+  dynamic "dead_letter_config" {
+    for_each = var.dead_letter_arn == null ? [] : [{}]
+
+    content {
+      target_arn = var.dead_letter_arn
+    }
+  }
+
   environment {
     variables = local.env_vars
   }
