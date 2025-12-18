@@ -46,6 +46,16 @@ variable "region" {
   type        = string
 }
 
+variable "ssm_layer_account_id" {
+  description = "AccountId to use for accessing AWS-Parameters-and-Secrets-Lambda-Extension, differs per region"
+  default     = "015030872274"
+}
+
+variable "ssm_layer_version" {
+  description = "Version of AWS-Parameters-and-Secrets-Lambda-Extension to use"
+  default     = 21
+}
+
 variable "dead_letter_arn" {
   description = "ARN of SNS topic or SQS queue to notify when invocation fails"
   type        = string

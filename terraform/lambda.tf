@@ -6,7 +6,7 @@ resource "aws_lambda_function" "cloudwatch_to_slack" {
   s3_bucket     = var.s3_bucket
   s3_key        = var.s3_key
 
-  layers = var.slack_webhook_secret != "" ? ["arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension:11"] : []
+  layers = var.slack_webhook_secret != "" ? ["arn:aws:lambda:${var.region}:${var.ssm_layer_account_id}:layer:AWS-Parameters-and-Secrets-Lambda-Extension:${var.ssm_layer_version}"] : []
 
   role = aws_iam_role.cloudwatch_to_slack_exec_role.arn
 
