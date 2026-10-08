@@ -17,7 +17,9 @@ Parses incoming SNS message and POSTs to above webhook url.
 
 See `sample.json` for example data, this allows the `main.py` to be run locally.
 
-See `package.sh` to build zip file with dependencies
+See `package.sh` to build zip file with dependencies. Pass an optional version (e.g. `./package.sh 2.0.0`) to name the zip `cloudwatch-to-slack-2.0.0.zip`, otherwise a timestamp is used.
+
+Publishing a GitHub release runs the `Release` workflow, which builds `cloudwatch-to-slack-{version}.zip` (leading `v` stripped from the tag) and attaches it to the release.
 
 ## Terraform
 
