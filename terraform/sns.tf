@@ -1,5 +1,7 @@
 resource "aws_sns_topic" "cloudwatch_alarm" {
   name = "${var.prefix}-cloudwatch-alarm-slack"
+
+  tags = var.tags
 }
 
 resource "aws_sns_topic_subscription" "cloudwatch_to_slack_subscription" {

@@ -56,6 +56,12 @@ variable "ssm_layer_version" {
   default     = 21
 }
 
+variable "tags" {
+  description = "Optional tags to apply to the Lambda function"
+  type        = map(string)
+  default     = {}
+}
+
 variable "dead_letter_arn" {
   description = "ARN of SNS topic or SQS queue to notify when invocation fails"
   type        = string

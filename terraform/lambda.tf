@@ -21,6 +21,8 @@ resource "aws_lambda_function" "cloudwatch_to_slack" {
   environment {
     variables = local.env_vars
   }
+
+  tags = var.tags
 }
 
 resource "aws_lambda_permission" "allow_sns_to_call_cloudwatch_to_slack" {
